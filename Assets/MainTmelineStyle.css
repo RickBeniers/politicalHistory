@@ -7,3 +7,11 @@ background-color: white;
 #LowerContent{
 background-color: blue;
 }
+#TimelineBox{
+
+}
+.TimelineRulerVer{
+    position: relative;
+    max-height: 1200px;
+    margin: 0 auto;
+}
