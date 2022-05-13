@@ -1,17 +1,28 @@
 #UpperContent{
-background-color: red;
+    background-color: lightgray;
+    max-width: 1000px;
+    height: 200px;
 }
 #CentreContent{
-background-color: white;
+    background-color: white;
+    max-width: 1000px;
+    height: 800px;
 }
 #LowerContent{
-background-color: blue;
+    background-color: gray;
+    max-width: 1000px;
+    height: 200px;
 }
 #TimelineBox{
-
+    width: 1000px;
+    height: 200px;
+    border: black 5px;
 }
-.TimelineRulerVer{
+.TimelineRulerHor{
     position: relative;
-    max-height: 1200px;
+    height: 10px;
+    max-width: 100%;
     margin: 0 auto;
+    background-color: black;
+    top: 750px;
 }
