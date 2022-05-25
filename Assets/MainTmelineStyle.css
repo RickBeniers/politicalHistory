@@ -1,28 +1,54 @@
 #UpperContent{
     background-color: lightgray;
-    max-width: 1000px;
+    width: 100%;
     height: 200px;
 }
 #CentreContent{
     background-color: white;
-    max-width: 1000px;
+    width: 100%;
     height: 800px;
 }
 #LowerContent{
     background-color: gray;
-    max-width: 1000px;
+    width: 100%;
     height: 200px;
 }
 #TimelineBox{
-    width: 1000px;
+    width: 100%;
     height: 200px;
-    border: black 5px;
+    border: 1px solid black;
+}
+#TimelineInfoDisplay{
+    width: 100%;
+    height: 600px;
+    border: 1px solid black;
 }
 .TimelineRulerHor{
-    position: relative;
+    position: sticky;
     height: 10px;
     max-width: 100%;
     margin: 0 auto;
     background-color: black;
-    top: 750px;
+    top: 70%;
+}
+.TimelineVerSticks{
+    background-color: black;
+    width: 5px;
+    position: fixed;
+    float: left;
+}
+#FarLeftYearIndicator{
+    height: 50px;
+    bottom: 31.5%;
+    top: 68.5%;
+}
+.YearIndication{
+    height: 50px;
+    bottom: 31.5%;
+    top: 68.5%;
+}
+.SeasonsIndication{
+    height: 25px;
+    bottom: ;
+    top: ;
 }
