@@ -1,32 +1,42 @@
+#body{
+    min-width: 4000px;
+    margin: 0px 0px 0px 0px;
+}
 #UpperContent{
     background-color: lightgray;
     width: 100%;
-    height: 200px;
+    height: 15%;
+    top: 0%;
 }
 #CentreContent{
     background-color: white;
     width: 100%;
-    height: 850px;
-    overflow-y: hidden;
-    overflow-x: auto;
+    height: 69%;
+    margin: 0px 0px 0px 20px;
 }
 #LowerContent{
     width: 100%;
-    height: 200px;
-    background-color: gray;
+    height: 15%;
+    bottom: 0%;
 }
 #TimelineBox{
     width: 100%;
     height: 50px;
+    top: 0%;
+}
+.timeLineYearsInLine{
+    width: 100%;
+    height: 50px;
+    overflow-x: visible;
+    overflow-y: visible;
 }
 #TimelineInfoDisplay{
     width: 100%;
-    height: 800px;
+    height: 90%;
     top: 0%;
 }
 .TimelineRulerHor{
     height: 5px;
-    max-width: 100%;
     background-color: black;
     position: relative;
 }
@@ -49,6 +59,7 @@
     height: 50px;
     width: 100px;
     float: left;
+    display: inline-block;
 }
 .YearIndicatorPosition{
     margin-left: 0px;
@@ -59,7 +70,6 @@
     position: relative;
     text-align: center;
     margin: 0%;
-    top: 0px;
     bottom: 0px;
     left: -25px;
 }
@@ -67,16 +77,15 @@
     height: 400px;
     width: 100%;
     position: relative;
-    top: 350px;
+    top: 45%;
 }
 .innerInfoDisplayBox{
-    height: 398px;
+    height: 400px;
     max-width: 400px;
     width: 100%;
 }
 .widthInfoDisplayBox{
     max-width: 400px;
-    width: 398px;
     width: 100%;
     height: 133px;
 }
@@ -86,14 +95,45 @@
     border-right: 1px solid black;
     border-left: 1px solid black;
 }
+.headOfStateImgDiv{
+    height: 92%;
+    width: 14%;
+    margin: 3px;
+    background-color: lightgray;
+    float: left;
+}
+.headOfStateTitleDisplay{
+    height: 98%;
+    width: 70%;
+    float: left;
+    top: 0%;
+}
 .headOfGovermentTitleDiv{
     border-right: 1px solid black;
     border-left: 1px solid black;
+}
+.headOfGovermentImgDiv{
+    height: 92%;
+    width: 14%;
+    margin: 3px;
+    background-color: lightgray;
+    float: left;
+}
+.headOfGovermentTitleDisplay{
+    height: 98%;
+    width: 70%;
+    float: left;
+    top: 0%;
 }
 .titleDivSpecifics{
     max-width: 398px;
     width: 100%;
     height: 66px;
+}
+.titleTekstPosition{
+    margin: 2px;
+    top: 1%;
+    left: 0%;
 }
 .congressSeatDistributionDiv{
     max-width: 198px;
@@ -102,15 +142,34 @@
 }
 .congressChamberSpeakerTitleDiv{
     max-width: 398px;
-    width: 100%;
     height: 18px;
     border-bottom: 1px solid black;
     border-top: 1px solid black;
-    border-right: 1px solid black;
+}
+.leftChamber01SpeakerTitleDiv{
     border-left: 1px solid black;
+    border-right: 1px solid black;
+    width: 398px;
+    float: left;
+}
+.rightChamber01SpeakerTitleDiv{
+    border-right: 0px solid black;
+    width: 0px;
+    float: right;
+}
+.leftChamber02SpeakerTitleDiv{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    width: 398px;
+    float: left;
+}
+.rightChamber02SpeakerTitleDiv{
+    border-right: 0px solid black;
+    width: 0px;
+    float: right;
 }
 .chamber02SeatDistributionHolder{
-    height: 114px;
+    height: 133px;
     border-bottom: 1px solid black;
 }
 .chamber01SeatDistributionHolder{
@@ -134,3 +193,6 @@
     float: left;
     border-left: 1px solid black;
  }
+.speakerTitleDisplay{
+    margin: 0px;
+}
