@@ -83,6 +83,7 @@
     height: 400px;
     max-width: 400px;
     width: 100%;
+    float: left;
 }
 .widthInfoDisplayBox{
     max-width: 400px;
@@ -195,4 +196,12 @@
  }
 .speakerTitleDisplay{
     margin: 0px;
+}
+.CongressSessionTickerPosition{
+    width: 50px;
+    height: 25px;
+    margin: 0px;
+    position: relative;
+    left: 33%;
+    top: 5px;
 }

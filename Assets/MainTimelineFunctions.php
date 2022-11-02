@@ -18,24 +18,41 @@ function automatedTimelineCreator($totalYearsPar, $StartYearPar){
         //console.log(document.getElementById("HorizontalLine").style.width)</script>';
     }
 }
-function automatedInfoBoxCreator($totalTimeSpanPar){
-    for($i = 1; $i <= $totalTimeSpanPar; $i++){
-        echo'<div class="widthInfoDisplayBox" >
+function automatedInfoBoxCreator($totalTerms){
+    for($i = 1; $i <= $totalTerms; $i++){
+        echo'<div class="innerInfoDisplayBox">
+                <div class="widthInfoDisplayBox" >
                     <div class="headOfStateTitleDiv titleDivSpecifics">
-
+                        <div class="headOfStateImgDiv"><img ></div>
+                        <div class="headOfStateTitleDisplay">
+                            <h4 class="titleTekstPosition">firstname + lastname</h4>
+                            <h4 class="titleTekstPosition">title</h4>
+                            <h4 class="titleTekstPosition">party affiliation</h4>
+                        </div>
                     </div>
-                    <div class="headOfGovermentTitleDiv titleDivSpecifics"></div>
+                    <div class="headOfGovermentTitleDiv titleDivSpecifics">
+                        <div class="headOfGovermentImgDiv"><img ></div>
+                        <div class="headOfGovermentTitleDisplay">
+                            <h4 class="titleTekstPosition">firstname + lastname</h4>
+                            <h4 class="titleTekstPosition">title</h4>
+                            <h4 class="titleTekstPosition">party affiliation</h4>
+                        </div>
+                    </div>
                 </div>
                 <div class="widthInfoDisplayBox">
                     <div class="congressChamberSpeakerTitleDiv leftChamber01SpeakerTitleDiv">
                         <h4 class="speakerTitleDisplay">Title + name</h4>
                     </div>
                     <div class="congressChamberSpeakerTitleDiv rightChamber01SpeakerTitleDiv">
-                        <h4 class="speakerTitleDisplay">Title + name</h4>
+                        <h4 class="speakerTitleDisplay"></h4>
                     </div>
                     <div class="chamber01SeatDistributionHolder">
-                        <div class="congressSeatDistributionDiv leftChamber01SeatDistributionDiv"></div>
-                        <div class="congressSeatDistributionDiv rightChamber01SeatDistributionDiv"></div>
+                        <div class="congressSeatDistributionDiv leftChamber01SeatDistributionDiv">
+                            <h4 class="CongressSessionTickerPosition">Session</h4>
+                        </div>
+                        <div class="congressSeatDistributionDiv rightChamber01SeatDistributionDiv">
+                            <h4 class="CongressSessionTickerPosition">Session</h4>
+                        </div>
                     </div>
                 </div>
                 <div class="widthInfoDisplayBox">
@@ -43,13 +60,14 @@ function automatedInfoBoxCreator($totalTimeSpanPar){
                         <h4 class="speakerTitleDisplay">Title + name</h4>
                     </div>
                     <div class="congressChamberSpeakerTitleDiv rightChamber02SpeakerTitleDiv">
-                        <h4 class="speakerTitleDisplay">Title + name</h4>
+                        <h4 class="speakerTitleDisplay"></h4>
                     </div>
                     <div class="chamber02SeatDistributionHolder">
                         <div class="congressSeatDistributionDiv leftChamber02SeatDistributionDiv"></div>
                         <div class="congressSeatDistributionDiv rightChamber02SeatDistributionDiv"></div>
                     </div>
-                </div>';
+                </div>
+            </div>';
     }
 }
 ?>
