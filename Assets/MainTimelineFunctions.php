@@ -71,4 +71,3 @@ function automatedInfoBoxCreator($totalTerms){
     }
 }
 ?>
-
