@@ -1,16 +1,13 @@
 <?php
-function ConnectToDatabase()
-{
     $host = "127.0.0.1";
     $port = 3306;
     $user = "root";
-    $password = "Rick3109";
-    $dbname = "PoliticalHistoryDb";
+    $password = "";
+    $dbname = "politicalhistorydb";
 
-    $connection = null;
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     try {
-        $connection = new mysqli($host, $user, $password, $dbname, $port);
+        $connection = mysqli_connect($host, $user, $password, $dbname, $port);
         mysqli_set_charset($connection, 'latin1');
         $DatabaseAvailable = true;
     }catch (mysqli_sql_exception $e) {
@@ -21,6 +18,6 @@ function ConnectToDatabase()
         die();
     }
     return $connection;
-    //$con->close();
-}
+    $connection->close();
+
 ?>
