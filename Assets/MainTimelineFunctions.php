@@ -20,40 +20,89 @@ function automatedTimelineCreator($totalYearsPar, $StartYearPar){
         //console.log(document.getElementById("HorizontalLine").style.width)</script>';
     }
 }
-function automatedFirstChamberSession(){
-    $percentageOfSeatsP01 = 30;
-    $percentageOfSeatsP02 = 70;
-
-    $cookie01Name = "percentageOfSeatsP01";
-    $cookie01Value = $percentageOfSeatsP01;
-    setcookie($cookie01Name, $cookie01Value);
-    $cookie02Name = "percentageOfSeatsP02";
-    $cookie02Value = $percentageOfSeatsP02;
-    setcookie($cookie02Name, $cookie02Value);
-    //echo $_COOKIE[$cookie01Name];
-    //echo $_COOKIE[$cookie02Name];
+function automatedLeftFirstChamberSession(){
     echo'<div class="ChamberDistribution" id="firstPartyDistributionOfSeats">
                 <h4 class="CongressSessionTickerPosition" style="left: 75px;">Session</h4>
             </div>
             <div class="ChamberDistribution" id="secondPartyDistributionOfSeats">
             </div>
             <script type="text/javascript">
-            var newpercentageOfSeatsP01 = "30%"
-            console.log(newpercentageOfSeatsP01);
-            //var percentageOfSeatsP02 = getCookie("percentageOfSeatsP02");
-            var newpercentageOfSeatsP02 = "70%"
-            console.log(newpercentageOfSeatsP02);
+                function getCookie(cname){
+                    let name = cname + "=";
+                    let decodedCookie = decodeURIComponent(document.cookie);
+                    let ca = decodedCookie.split(";");
+                    for(let i = 0; i < ca.length; i++){
+                        let c = ca[i];
+                        while(c.charAt(0) == " "){
+                            c = c.substring(1);
+                        }
+                        if(c.indexOf(name) == 0){
+                            return c.substring(name.length, c.length);
+                        }
+                    }
+                    return "";
+                }
+                var percentageOfSeatsP01 = getCookie("percentageOfSeatsP01UL");
+                var newpercentageOfSeatsP01 = percentageOfSeatsP01 + "%";
+                //console.log(newpercentageOfSeatsP01);
+                var percentageOfSeatsP02 = getCookie("percentageOfSeatsP02UL");
+                var newpercentageOfSeatsP02 = percentageOfSeatsP02 + "%";
+                //console.log(newpercentageOfSeatsP02);
             
-            document.getElementById("firstPartyDistributionOfSeats").style.setProperty("--verticalLength", newpercentageOfSeatsP01);
-            document.getElementById("secondPartyDistributionOfSeats").style.setProperty("--verticalLength", newpercentageOfSeatsP02);
+                //change the height of the 2 seat distribution divs
+                document.getElementById("firstPartyDistributionOfSeats").style.setProperty("--verticalLength", newpercentageOfSeatsP01);
+                document.getElementById("secondPartyDistributionOfSeats").style.setProperty("--verticalLength", newpercentageOfSeatsP02);
+                //show the top-border of the lower div to create a divider between the 2 divs
+                document.getElementById("secondPartyDistributionOfSeats").style.borderTop = "thin solid black";
             </script>';
-
 }
-function automatedSecondChamberSession(){
+function automatedRightFirstChamberSession(){
+    echo'<div class="ChamberDistribution" id="firstPartyDistributionOfSeats">
+                <h4 class="CongressSessionTickerPosition" style="left: 75px;">Session</h4>
+            </div>
+            <div class="ChamberDistribution" id="secondPartyDistributionOfSeats">
+            </div>
+            <script type="text/javascript">
+            </script>';
+}
+function automatedLeftSecondChamberSession(){
     echo'<div class="ChamberDistribution"></div>
          <div class="ChamberDistribution"></div>';
 }
+function automatedRightSecondChamberSession(){
+
+}
+function createCookies(){
+    //seat distribution in percentage for upper left div
+    $percentageOfSeatsP01UL = 30;
+    $percentageOfSeatsP02UL = 70;
+    //seat distribution in percentage for upper right div
+    $percentageOfSeatsP01UR = 60;
+    $percentageOfSeatsP02UR = 40;
+    //seat distribution in percentage for lower left div
+    $percentageOfSeatsP01LL = 35;
+    $percentageOfSeatsP02LL = 65;
+    //seat distribution in percentage for lower right div
+    $percentageOfSeatsP01LR = 53;
+    $percentageOfSeatsP02LR = 67;
+
+    //Create cookies for seat distribution percentage of upper left div
+    $cookie01Name = "percentageOfSeatsP01UL";
+    $cookie01Value = $percentageOfSeatsP01UL;
+    setcookie($cookie01Name, $cookie01Value);
+    $cookie02Name = "percentageOfSeatsP02UL";
+    $cookie02Value = $percentageOfSeatsP02UL;
+    setcookie($cookie02Name, $cookie02Value);
+    //Create cookies for seat distribution percentage of upper right div
+    $cookie03Name = "percentageOfSeatsP01UR";
+    $cookie03Value = $percentageOfSeatsP01UR;
+    setcookie($cookie03Name, $cookie03Value);
+    $cookie04Name = "percentageOfSeatsP02UR";
+    $cookie04Value = $percentageOfSeatsP02UR;
+    setcookie($cookie04Name, $cookie04Value);
+}
 function automatedInfoBoxCreator($totalTerms){
+    createCookies();
     for($i = 1; $i <= $totalTerms; $i++){
         //call SQL connection
         $sql = 'SELECT O.Title, P.FirstName, P.LastName, O.PartyAffiliation
@@ -96,10 +145,10 @@ function automatedInfoBoxCreator($totalTerms){
                     </div>
                     <div class="chamber01SeatDistributionHolder">
                         <div class="congressSeatDistributionDiv leftChamber01SeatDistributionDiv">
-                            '; automatedFirstChamberSession(); echo'
+                            '; automatedLeftFirstChamberSession(); echo'
                         </div>
                         <div class="congressSeatDistributionDiv rightChamber01SeatDistributionDiv">
-                            '; automatedFirstChamberSession(); echo'
+                            '; automatedRightFirstChamberSession(); echo'
                         </div>
                     </div>
                 </div>
@@ -112,10 +161,10 @@ function automatedInfoBoxCreator($totalTerms){
                     </div>
                     <div class="chamber02SeatDistributionHolder">
                         <div class="congressSeatDistributionDiv leftChamber02SeatDistributionDiv">
-                            '; automatedSecondChamberSession(); echo'
+                            '; automatedLeftSecondChamberSession(); echo'
                         </div>
                         <div class="congressSeatDistributionDiv rightChamber02SeatDistributionDiv">
-                            '; automatedSecondChamberSession(); echo'
+                            '; automatedRightSecondChamberSession(); echo'
                         </div>
                     </div>
                 </div>
