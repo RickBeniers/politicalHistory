@@ -6,6 +6,7 @@
     <?php include 'MainTimelineFunctions.php'?>
 </head>
 <body id="body">
+<?php createCookies(); ?>
 <header id="UpperContent"></header>
 <div id="CentreContent">
     <div id="TimelineInfoDisplay">

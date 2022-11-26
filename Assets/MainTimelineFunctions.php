@@ -1,5 +1,7 @@
 <?php
 include 'Database.php';
+$chamberDistributionDivIdCounter = 1;
+
 function automatedTimelineCreator($totalYearsPar, $StartYearPar){
     $StartYear = $StartYearPar;
     echo'<script>var lineWidth=0;</script>';
@@ -21,12 +23,16 @@ function automatedTimelineCreator($totalYearsPar, $StartYearPar){
     }
 }
 function automatedLeftFirstChamberSession(){
-    echo'<div class="ChamberDistribution" id="firstPartyDistributionOfSeats">
+    global $chamberDistributionDivIdCounter;
+    $IdVariableStringP1 = "firstPartyDistributionOfSeats" . $chamberDistributionDivIdCounter;
+    $IdVariableStringP2 = "secondPartyDistributionOfSeats" . $chamberDistributionDivIdCounter;
+    echo'<div class="ChamberDistribution" id="'. $IdVariableStringP1 .'">
                 <h4 class="CongressSessionTickerPosition" style="left: 75px;">Session</h4>
             </div>
-            <div class="ChamberDistribution" id="secondPartyDistributionOfSeats">
+            <div class="ChamberDistribution" id="'. $IdVariableStringP2 . '">
             </div>
             <script type="text/javascript">
+            //cookie decoding function
                 function getCookie(cname){
                     let name = cname + "=";
                     let decodedCookie = decodeURIComponent(document.cookie);
@@ -42,67 +48,183 @@ function automatedLeftFirstChamberSession(){
                     }
                     return "";
                 }
+                //assign the values stored in cookies into new variables
                 var percentageOfSeatsP01 = getCookie("percentageOfSeatsP01UL");
                 var newpercentageOfSeatsP01 = percentageOfSeatsP01 + "%";
                 //console.log(newpercentageOfSeatsP01);
                 var percentageOfSeatsP02 = getCookie("percentageOfSeatsP02UL");
                 var newpercentageOfSeatsP02 = percentageOfSeatsP02 + "%";
                 //console.log(newpercentageOfSeatsP02);
-            
                 //change the height of the 2 seat distribution divs
-                document.getElementById("firstPartyDistributionOfSeats").style.setProperty("--verticalLength", newpercentageOfSeatsP01);
-                document.getElementById("secondPartyDistributionOfSeats").style.setProperty("--verticalLength", newpercentageOfSeatsP02);
+                document.getElementById("'.$IdVariableStringP1.'").style.setProperty("--verticalLength", newpercentageOfSeatsP01);
+                document.getElementById("'.$IdVariableStringP2.'").style.setProperty("--verticalLength", newpercentageOfSeatsP02);
                 //show the top-border of the lower div to create a divider between the 2 divs
-                document.getElementById("secondPartyDistributionOfSeats").style.borderTop = "thin solid black";
+                document.getElementById("'.$IdVariableStringP2.'").style.borderTop = "thin solid black";
             </script>';
+    //print($chamberDistributionDivIdCounter);
+    $chamberDistributionDivIdCounter++;
+    //print($chamberDistributionDivIdCounter);
 }
 function automatedRightFirstChamberSession(){
-    echo'<div class="ChamberDistribution" id="firstPartyDistributionOfSeats">
+    global $chamberDistributionDivIdCounter;
+    $IdVariableStringP1 = "firstPartyDistributionOfSeats" . $chamberDistributionDivIdCounter;
+    $IdVariableStringP2 = "secondPartyDistributionOfSeats" . $chamberDistributionDivIdCounter;
+    echo'<div class="ChamberDistribution" id="'.$IdVariableStringP1.'">
                 <h4 class="CongressSessionTickerPosition" style="left: 75px;">Session</h4>
             </div>
-            <div class="ChamberDistribution" id="secondPartyDistributionOfSeats">
+            <div class="ChamberDistribution" id="'.$IdVariableStringP2.'">
             </div>
             <script type="text/javascript">
+            //cookie decoding function
+                function getCookie(cname){
+                    let name = cname + "=";
+                    let decodedCookie = decodeURIComponent(document.cookie);
+                    let ca = decodedCookie.split(";");
+                    for(let i = 0; i < ca.length; i++){
+                        let c = ca[i];
+                        while(c.charAt(0) == " "){
+                            c = c.substring(1);
+                        }
+                        if(c.indexOf(name) == 0){
+                            return c.substring(name.length, c.length);
+                        }
+                    }
+                    return "";
+                }
+                //assign the values stored in cookies into new variables
+                var percentageOfDistributedSeatsP1UR = getCookie("percentageOfSeatsP01UR");
+                var NewpercentageOfDistributedSeatsP1UR = percentageOfDistributedSeatsP1UR + "%";
+                var percentageOfDistributedSeatsP2UR = getCookie("percentageOfSeatsP02UR");
+                var NewpercentageOfDistributedSeatsP2UR = percentageOfDistributedSeatsP2UR + "%";
+                //console.log(NewpercentageOfDistributedSeatsP1UR);
+                //change the height of the 2 seat distribution divs
+                document.getElementById("'.$IdVariableStringP1.'").style.setProperty("--verticalLength", NewpercentageOfDistributedSeatsP1UR);
+                document.getElementById("'.$IdVariableStringP2.'").style.setProperty("--verticalLength", NewpercentageOfDistributedSeatsP2UR);
+                //show the top-border of the lower div to create a divider between the 2 divs
+                document.getElementById("'.$IdVariableStringP2.'").style.borderTop = "thin solid black";
             </script>';
+    $chamberDistributionDivIdCounter++;
 }
 function automatedLeftSecondChamberSession(){
-    echo'<div class="ChamberDistribution"></div>
-         <div class="ChamberDistribution"></div>';
+    global $chamberDistributionDivIdCounter;
+    $IdVariableStringP1 = "firstPartyDistributionOfSeats" . $chamberDistributionDivIdCounter;
+    $IdVariableStringP2 = "secondPartyDistributionOfSeats" . $chamberDistributionDivIdCounter;
+    echo'<div class="ChamberDistribution" id="'.$IdVariableStringP1.'">
+         </div>
+         <div class="ChamberDistribution" id="'.$IdVariableStringP2.'">
+         </div>
+         <script type="text/javascript">
+         //cookie decoding function
+                function getCookie(cname){
+                    let name = cname + "=";
+                    let decodedCookie = decodeURIComponent(document.cookie);
+                    let ca = decodedCookie.split(";");
+                    for(let i = 0; i < ca.length; i++){
+                        let c = ca[i];
+                        while(c.charAt(0) == " "){
+                            c = c.substring(1);
+                        }
+                        if(c.indexOf(name) == 0){
+                            return c.substring(name.length, c.length);
+                        }
+                    }
+                    return "";
+                }
+                //assign the values stored in cookies into new variables
+                var PercentageOfDistributedSeatsP1LL = getCookie("percentageOfSeatsP01LL");
+                var NewpercentageOfDistributedSeatsP1LL = PercentageOfDistributedSeatsP1LL + "%";
+                var PercentageOfDistributedSeatsP2LL = getCookie("percentageOfSeatsP02LL");
+                var NewpercentageOfDistributedSeatsP2LL = PercentageOfDistributedSeatsP2LL + "%";
+                //change the height of the 2 seat distribution divs
+                document.getElementById("'.$IdVariableStringP1.'").style.setProperty("--verticalLength", NewpercentageOfDistributedSeatsP1LL);
+                document.getElementById("'.$IdVariableStringP2.'").style.setProperty("--verticalLength", NewpercentageOfDistributedSeatsP2LL);
+                //show the top-border of the lower div to create a divider between the 2 divs
+                document.getElementById("'.$IdVariableStringP2.'").style.borderTop = "thin solid black";
+         </script>';
+    $chamberDistributionDivIdCounter++;
 }
 function automatedRightSecondChamberSession(){
-
+    global $chamberDistributionDivIdCounter;
+    $IdVariableStringP1 = "firstPartyDistributionOfSeats" . $chamberDistributionDivIdCounter;
+    $IdVariableStringP2 = "secondPartyDistributionOfSeats" . $chamberDistributionDivIdCounter;
+    echo'<div class="ChamberDistribution" id="'.$IdVariableStringP1.'">
+         </div>
+         <div class="ChamberDistribution" id="'.$IdVariableStringP2.'">
+         </div>
+         <script type="text/javascript">
+         //cookie decoding function
+                function getCookie(cname){
+                    let name = cname + "=";
+                    let decodedCookie = decodeURIComponent(document.cookie);
+                    let ca = decodedCookie.split(";");
+                    for(let i = 0; i < ca.length; i++){
+                        let c = ca[i];
+                        while(c.charAt(0) == " "){
+                            c = c.substring(1);
+                        }
+                        if(c.indexOf(name) == 0){
+                            return c.substring(name.length, c.length);
+                        }
+                    }
+                    return "";
+                }
+                //assign the values stored in cookies into new variables
+                var PercentageOfDistributedSeatsP1LR = getCookie("percentageOfSeatsP01LR");
+                var NewpercentageOfDistributedSeatsP1LR = PercentageOfDistributedSeatsP1LR + "%";
+                var PercentageOfDistributedSeatsP2LR = getCookie("percentageOfSeatsP02LR");
+                var NewpercentageOfDistributedSeatsP2LR = PercentageOfDistributedSeatsP2LR + "%";
+                //change the height of the 2 seat distribution divs
+                document.getElementById("'.$IdVariableStringP1.'").style.setProperty("--verticalLength", NewpercentageOfDistributedSeatsP1LR);
+                document.getElementById("'.$IdVariableStringP2.'").style.setProperty("--verticalLength", NewpercentageOfDistributedSeatsP2LR);
+                //show the top-border of the lower div to create a divider between the 2 divs
+                document.getElementById("'.$IdVariableStringP2.'").style.borderTop = "thin solid black";
+         </script>';
+    $chamberDistributionDivIdCounter++;
 }
 function createCookies(){
     //seat distribution in percentage for upper left div
-    $percentageOfSeatsP01UL = 30;
-    $percentageOfSeatsP02UL = 70;
+    $percentageOfSeatsP01UL = 29;
+    $percentageOfSeatsP02UL = 69;
     //seat distribution in percentage for upper right div
-    $percentageOfSeatsP01UR = 60;
-    $percentageOfSeatsP02UR = 40;
+    $percentageOfSeatsP01UR = 59;
+    $percentageOfSeatsP02UR = 39;
     //seat distribution in percentage for lower left div
-    $percentageOfSeatsP01LL = 35;
-    $percentageOfSeatsP02LL = 65;
+    $percentageOfSeatsP01LL = 34;
+    $percentageOfSeatsP02LL = 64;
     //seat distribution in percentage for lower right div
-    $percentageOfSeatsP01LR = 53;
-    $percentageOfSeatsP02LR = 67;
+    $percentageOfSeatsP01LR = 49;
+    $percentageOfSeatsP02LR = 49;
 
-    //Create cookies for seat distribution percentage of upper left div
+    //Create cookies for seat distribution percentage of upper left div(UL)
     $cookie01Name = "percentageOfSeatsP01UL";
     $cookie01Value = $percentageOfSeatsP01UL;
     setcookie($cookie01Name, $cookie01Value);
     $cookie02Name = "percentageOfSeatsP02UL";
     $cookie02Value = $percentageOfSeatsP02UL;
     setcookie($cookie02Name, $cookie02Value);
-    //Create cookies for seat distribution percentage of upper right div
+    //Create cookies for seat distribution percentage of upper right div(UR)
     $cookie03Name = "percentageOfSeatsP01UR";
     $cookie03Value = $percentageOfSeatsP01UR;
     setcookie($cookie03Name, $cookie03Value);
     $cookie04Name = "percentageOfSeatsP02UR";
     $cookie04Value = $percentageOfSeatsP02UR;
     setcookie($cookie04Name, $cookie04Value);
+    //Create cookies for seat distribution percentage of lower left div(LL)
+    $cookie05Name = "percentageOfSeatsP01LL";
+    $cookie05Value = $percentageOfSeatsP01LL;
+    setcookie($cookie05Name, $cookie05Value);
+    $cookie06Name = "percentageOfSeatsP02LL";
+    $cookie06Value = $percentageOfSeatsP02LL;
+    setcookie($cookie06Name, $cookie06Value);
+    //Create cookies for seat distribution percentage of lower right div(LR)
+    $cookie07Name = "percentageOfSeatsP01LR";
+    $cookie07Value = $percentageOfSeatsP01LR;
+    setcookie($cookie07Name, $cookie07Value);
+    $cookie08Name = "percentageOfSeatsP02LR";
+    $cookie08Value = $percentageOfSeatsP02LR;
+    setcookie($cookie08Name, $cookie08Value);
 }
 function automatedInfoBoxCreator($totalTerms){
-    createCookies();
     for($i = 1; $i <= $totalTerms; $i++){
         //call SQL connection
         $sql = 'SELECT O.Title, P.FirstName, P.LastName, O.PartyAffiliation
