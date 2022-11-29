@@ -2,11 +2,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="MainTmelineStyle.css?v=027" type="text/css">
+    <link rel="stylesheet" href="MainTmelineStyle.css?v=030" type="text/css">
     <?php include 'MainTimelineFunctions.php'?>
 </head>
 <body id="body">
-<?php createCookies(); ?>
+<?php createCookies(100, 100); ?>
 <header id="UpperContent"></header>
 <div id="CentreContent">
     <div id="TimelineInfoDisplay">

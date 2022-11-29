@@ -1,6 +1,10 @@
 <?php
 include 'Database.php';
 $chamberDistributionDivIdCounter = 1;
+$chamberSpeakerIdCounter = 1;
+
+$upperChamberSpeakerDivLength =1;
+$lowerChamberSpeakerDivLength =1;
 
 function automatedTimelineCreator($totalYearsPar, $StartYearPar){
     $StartYear = $StartYearPar;
@@ -181,7 +185,122 @@ function automatedRightSecondChamberSession(){
          </script>';
     $chamberDistributionDivIdCounter++;
 }
-function createCookies(){
+function firstChamberSpeakerSession($firsChamberSpeakerTermsPar1, $firstChamberSpeakerWidthPar1, $secondChamberSpeakerWidthPar1, $secondChamberSpeakerExtendsPar1, $firstChamberSpeakerExtendedPar1){
+    global $upperChamberSpeakerDivLength;
+    global $chamberSpeakerIdCounter;
+
+    $firstChamberSpeakerTerms = $firsChamberSpeakerTermsPar1;
+    $firstChamberSpeakerWidth = $firstChamberSpeakerWidthPar1;
+    $secondChamberSpeakerWidth = $secondChamberSpeakerWidthPar1;
+    $secondChamberSpeakerExtends = $secondChamberSpeakerExtendsPar1;
+    $firstChamberSpeakerExtended = $firstChamberSpeakerExtendedPar1;
+
+    $upperSpeakerDivIdString = "upperSpeakerDivId" . $chamberSpeakerIdCounter;
+    if($firstChamberSpeakerTerms == 1) {
+        echo '<div class="congressChamberSpeakerTitleDiv leftChamber02SpeakerTitleDiv" id="' . $upperSpeakerDivIdString . '">
+          <h4 class="speakerTitleDisplay">Title + name</h4>
+          </div>';
+        echo '<script>
+              document.getElementById("' . $upperSpeakerDivIdString . '").style.width="' . $upperChamberSpeakerDivLength . '%";
+              </script>';
+    }elseif($firstChamberSpeakerTerms == 2){
+        if($firstChamberSpeakerExtended == 1){
+            echo '<div class="congressChamberSpeakerTitleDiv leftChamber02SpeakerTitleDiv" id="' . $upperSpeakerDivIdString . '">
+                </div>
+                <script>
+                    document.getElementById("' . $upperSpeakerDivIdString . '").style.width="' . $firstChamberSpeakerWidth . '%";
+                </script>';
+            echo'<script>
+                    document.getElementById("' . $upperSpeakerDivIdString . '").style.borderLeft="0px";
+                 </script>';
+        }elseif($firstChamberSpeakerExtended == 0){
+            echo '<div class="congressChamberSpeakerTitleDiv leftChamber02SpeakerTitleDiv" id="' . $upperSpeakerDivIdString . '">
+          <h4 class="speakerTitleDisplay">Title + name</h4>
+          </div>
+          <script>
+          document.getElementById("' . $upperSpeakerDivIdString . '").style.width="' . $firstChamberSpeakerWidth . '%";
+          </script>';
+        }
+        $chamberSpeakerIdCounter++;
+        $upperSpeakerDivIdString = "upperSpeakerDivId" . $chamberSpeakerIdCounter;
+        echo'<div class="congressChamberSpeakerTitleDiv leftChamber02SpeakerTitleDiv" id="' . $upperSpeakerDivIdString . '">
+          <h4 class="speakerTitleDisplay">Title + name</h4>
+          </div>
+          <script>
+          document.getElementById("' . $upperSpeakerDivIdString . '").style.width="' . $secondChamberSpeakerWidth . '%";
+          document.getElementById("' . $upperSpeakerDivIdString . '").style.cssFloat="right";
+          document.getElementById("' . $upperSpeakerDivIdString . '").style.borderLeft="0px"
+          </script>';
+        if($secondChamberSpeakerExtends == 1){
+            echo'<script>
+                    document.getElementById("' . $upperSpeakerDivIdString . '").style.borderRight="0px";
+                 </script>';
+        }
+    }
+    $chamberSpeakerIdCounter++;
+}
+function secondChamberSpeakerSession($firsChamberSpeakerTermsPar, $firstChamberSpeakerWidthPar, $secondChamberSpeakerWidthPar, $secondChamberSpeakerExtendsPar, $firstChamberSpeakerExtendedPar){
+    global $lowerChamberSpeakerDivLength;
+    global $chamberSpeakerIdCounter;
+
+    $firstChamberSpeakerTerms = $firsChamberSpeakerTermsPar;
+    $firstChamberSpeakerWidth = $firstChamberSpeakerWidthPar;
+    $secondChamberSpeakerWidth = $secondChamberSpeakerWidthPar;
+    $secondChamberSpeakerExtends = $secondChamberSpeakerExtendsPar;
+    $firstChamberSpeakerExtended = $firstChamberSpeakerExtendedPar;
+
+    $upperSpeakerDivIdString = "upperSpeakerDivId" . $chamberSpeakerIdCounter;
+    if($firstChamberSpeakerTerms == 1) {
+        echo '<div class="congressChamberSpeakerTitleDiv leftChamber01SpeakerTitleDiv" id="' . $upperSpeakerDivIdString . '">
+          <h4 class="speakerTitleDisplay">Title + name</h4>
+          </div>';
+        echo '<script>
+              document.getElementById("' . $upperSpeakerDivIdString . '").style.width="' . $lowerChamberSpeakerDivLength . '%";
+              </script>';
+    }elseif($firstChamberSpeakerTerms == 2){
+        if($firstChamberSpeakerExtended == 1){
+            echo '<div class="congressChamberSpeakerTitleDiv leftChamber01SpeakerTitleDiv" id="' . $upperSpeakerDivIdString . '">
+                </div>
+                <script>
+                    document.getElementById("' . $upperSpeakerDivIdString . '").style.width="' . $firstChamberSpeakerWidth . '%";
+                </script>';
+            echo'<script>
+                    document.getElementById("' . $upperSpeakerDivIdString . '").style.borderLeft="0px";
+                 </script>';
+        }elseif($firstChamberSpeakerExtended == 0){
+            echo '<div class="congressChamberSpeakerTitleDiv leftChamber01SpeakerTitleDiv" id="' . $upperSpeakerDivIdString . '">
+          <h4 class="speakerTitleDisplay">Title + name</h4>
+          </div>
+          <script>
+          document.getElementById("' . $upperSpeakerDivIdString . '").style.width="' . $firstChamberSpeakerWidth . '%";
+          </script>';
+        }
+        $chamberSpeakerIdCounter++;
+        $upperSpeakerDivIdString = "upperSpeakerDivId" . $chamberSpeakerIdCounter;
+        echo'<div class="congressChamberSpeakerTitleDiv leftChamber01SpeakerTitleDiv" id="' . $upperSpeakerDivIdString . '">
+          <h4 class="speakerTitleDisplay">Title + name</h4>
+          </div>
+          <script>
+          document.getElementById("' . $upperSpeakerDivIdString . '").style.width="' . $secondChamberSpeakerWidth . '%";
+          document.getElementById("' . $upperSpeakerDivIdString . '").style.cssFloat="right";
+          document.getElementById("' . $upperSpeakerDivIdString . '").style.borderLeft="0px"
+          </script>';
+        if($secondChamberSpeakerExtends == 1){
+            echo'<script>
+                    document.getElementById("' . $upperSpeakerDivIdString . '").style.borderRight="0px";
+                 </script>';
+        }
+    }
+    $chamberSpeakerIdCounter++;
+}
+function createCookies($upperDivLength, $lowerDivLength){
+    //fill variable with data from database
+    global $upperChamberSpeakerDivLength;
+    global $lowerChamberSpeakerDivLength;
+
+    $upperChamberSpeakerDivLength = $upperDivLength;
+    $lowerChamberSpeakerDivLength = $lowerDivLength;
+
     //seat distribution in percentage for upper left div
     $percentageOfSeatsP01UL = 29;
     $percentageOfSeatsP02UL = 69;
@@ -259,12 +378,7 @@ function automatedInfoBoxCreator($totalTerms){
                     </div>
                 </div>
                 <div class="widthInfoDisplayBox">
-                    <div class="congressChamberSpeakerTitleDiv leftChamber01SpeakerTitleDiv">
-                        <h4 class="speakerTitleDisplay">Title + name</h4>
-                    </div>
-                    <div class="congressChamberSpeakerTitleDiv rightChamber01SpeakerTitleDiv">
-                        <h4 class="speakerTitleDisplay"></h4>
-                    </div>
+                        '; firstChamberSpeakerSession(2, 49, 50, 0, 0); echo'
                     <div class="chamber01SeatDistributionHolder">
                         <div class="congressSeatDistributionDiv leftChamber01SeatDistributionDiv">
                             '; automatedLeftFirstChamberSession(); echo'
@@ -275,12 +389,7 @@ function automatedInfoBoxCreator($totalTerms){
                     </div>
                 </div>
                 <div class="widthInfoDisplayBox">
-                    <div class="congressChamberSpeakerTitleDiv leftChamber02SpeakerTitleDiv">
-                        <h4 class="speakerTitleDisplay">Title + name</h4>
-                    </div>
-                    <div class="congressChamberSpeakerTitleDiv rightChamber02SpeakerTitleDiv">
-                        <h4 class="speakerTitleDisplay"></h4>
-                    </div>
+                        '; secondChamberSpeakerSession(2, 30, 69, 0, 0); echo'
                     <div class="chamber02SeatDistributionHolder">
                         <div class="congressSeatDistributionDiv leftChamber02SeatDistributionDiv">
                             '; automatedLeftSecondChamberSession(); echo'

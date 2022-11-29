@@ -88,7 +88,7 @@
 .widthInfoDisplayBox{
     max-width: 400px;
     width: 100%;
-    height: 133px;
+    height: 135px;
 }
 .headOfStateTitleDiv{
     border-top: 1px solid black;
@@ -150,7 +150,6 @@
 .leftChamber01SpeakerTitleDiv{
     border-left: 1px solid black;
     border-right: 1px solid black;
-    width: 398px;
     float: left;
 }
 .rightChamber01SpeakerTitleDiv{
@@ -170,7 +169,7 @@
     float: right;
 }
 .chamber02SeatDistributionHolder{
-    height: 133px;
+    height: 135px;
     border-bottom: 1px solid black;
 }
 .chamber01SeatDistributionHolder{
@@ -196,6 +195,7 @@
  }
 .speakerTitleDisplay{
     margin: 0px;
+    margin-left: 2%;
 }
 .CongressSessionTickerPosition{
     width: 50px;
